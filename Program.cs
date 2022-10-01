@@ -13,25 +13,25 @@ namespace SnakeandLadder
             int Position = 0;
 
             //Initializing Constants
-            const int LADDER = 1;
-            const int NOPLAY = 2;
-            const int SNAKE = 3;
+            const int Ladder = 1;
+            const int NoPlay = 2;
+            const int Snake = 3;
 
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
             Console.WriteLine($"Die Rolling : {DieRoll}");
 
-            int options = random.Next(1, 4);
+            int options = random.Next(0, 3);
 
             switch (options)
             {
-                case LADDER:
+                case Ladder:
                     Position += DieRoll;
                     break;
-                case SNAKE:
+                case Snake:
                     Position -= DieRoll;
                     break;
-                case NOPLAY:
+                case NoPlay:
                     Console.WriteLine("Position " + Position);
                     break;
             }
