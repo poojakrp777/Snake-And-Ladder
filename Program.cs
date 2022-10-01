@@ -10,14 +10,32 @@ namespace SnakeandLadder
     {
         static void Main(string[] args)
         {
-            int StartPosition = 0;
-            int ran = 0;
-            Random random = new Random(); //Random function can generate random number
-            ran = random.Next(1, 7);//Considering range from 1 to 6 i.e below 7
-            Console.WriteLine("Rolled Dice");
-            Console.WriteLine("Number got: " + ran);
-            Console.WriteLine("Starting Position of Player 1 is :" + StartPosition);
-            Console.ReadLine();
+            int Position = 0;
+
+            //Initializing Constants
+            const int LADDER = 1;
+            const int NOPLAY = 2;
+            const int SNAKE = 3;
+
+            Random random = new Random();
+            int DieRoll = random.Next(1, 7);
+            Console.WriteLine($"Die Rolling : {DieRoll}");
+
+            int options = random.Next(1, 4);
+
+            switch (options)
+            {
+                case LADDER:
+                    Position += DieRoll;
+                    break;
+                case SNAKE:
+                    Position -= DieRoll;
+                    break;
+                case NOPLAY:
+                    Console.WriteLine("Position " + Position);
+                    break;
+            }
+            Console.WriteLine("Position " + Position);
         }
     }
 }
